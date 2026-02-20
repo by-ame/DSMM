@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draped & Defined</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #E8D8C3; 
+    color: #3b2f2f;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #F3E8DC; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h2 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #3b2f2f;
+    user-select: none;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #3b2f2f;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #a0522d;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: #6e5c53;
+    font-size: 1.1rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: #A0522D; 
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.section {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.runway-section {
+    padding: 60px 0 0 0; 
+    text-align: center;
+}
+
+.runway-section h2, .runway-section p {
+    padding: 0 20px; 
+}
+
+.video-container {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto; 
+    display: block;
+}
+
+.gallery {
+    column-count: 4;
+    column-gap: 25px;
+    padding: 40px;
+}
+
+.aesthetic-card {
+    background: #ffffff;
+    padding: 12px 12px 20px 12px; 
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.4s ease-out;
+    margin-bottom: 25px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    break-inside: avoid; 
+}
+
+.aesthetic-card img {
+    width: 100%;
+    border-radius: 2px;
+    display: block;
+}
+
+.aesthetic-card .caption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: #3b2f2f;
+    text-align: center;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.aesthetic-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+.aesthetic-card:nth-child(odd) {
+    transform: rotate(-1.5deg);
+}
+.aesthetic-card:nth-child(3n) {
+    transform: rotate(1deg);
+}
+
+.aesthetic-card:hover {
+    transform: scale(1.05) rotate(0deg); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 10;
+    position: relative;
+}
+
+.contact {
+    background: #F3E8DC;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+input, textarea {
+    width: 80%;
+    max-width: 500px;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #c8b6a6;
+    background: #fffaf5;
+}
+
+button {
+    padding: 12px 30px;
+    background: #A0522D;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+footer {
+    background: #3b2f2f; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Media queries */
+@media(max-width: 900px) {
+    .gallery {
+        column-count: 3;
+    }
+}
+
+@media(max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #F3E8DC;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+        margin: 15px 0;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    .menu-toggle:checked ~ nav {
+        display: flex;
+    }
+    
+    .gallery {
+        column-count: 2;
+    }
+}
+
+@media(max-width: 600px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .gallery {
+        column-count: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Draped & Defined</h2>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#gallery">Aesthetics</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Discover Your Fashion Aesthetic</h1>
+    <p>Explore Gen Z fashion aesthetics inspired by runway and digital culture.</p>
+    <a href="#gallery" class="btn">Explore Styles</a>
+</section>
+
+<section class="runway-section">
+    <h2>Runway Inspiration</h2>
+    <p>Luxury fashion collections influence aesthetics like Old Money, Minimalism and Y2K revival.</p>
+
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="RUNWAY.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+<section id="gallery" class="section">
+    <h2>Popular Aesthetics</h2>
+    <p>Inspired by Pinterest-style mood boards</p>
+</section>
+
+<div class="gallery">
+    
+    <div class="aesthetic-card">
+        <img src="Acubi.jpg" alt="Acubi Aesthetic">
+        <div class="caption">Acubi</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Balletcore.jpg" alt="Balletcore Aesthetic">
+        <div class="caption">Balletcore</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Blokecore.jpg" alt="Blokecore Aesthetic">
+        <div class="caption">Blokecore</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Clean girl.jpg" alt="Clean Girl Aesthetic">
+        <div class="caption">Clean Girl</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Coquette.jpg" alt="Coquette Aesthetic">
+        <div class="caption">Coquette</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Cottagecore.jpg" alt="Cottagecore Aesthetic">
+        <div class="caption">Cottagecore</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Cyberpunk  Y2K Futurism.jpg" alt="Cyberpunk Y2K Futurism">
+        <div class="caption">Cyberpunk Y2K</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="dark academia.jpg" alt="Dark Academia Aesthetic">
+        <div class="caption">Dark Academia</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="fairy core.jpg" alt="Fairy Core Aesthetic">
+        <div class="caption">Fairy Core</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Gorpcore.jpg" alt="Gorpcore Aesthetic">
+        <div class="caption">Gorpcore</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Grunge.jpg" alt="Grunge Aesthetic">
+        <div class="caption">Grunge</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Light Academia.jpg" alt="Light Academia Aesthetic">
+        <div class="caption">Light Academia</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Old Money  Quiet Luxury.jpg" alt="Old Money Quiet Luxury">
+        <div class="caption">Old Money</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Streetwear.jpg" alt="Streetwear Aesthetic">
+        <div class="caption">Streetwear</div>
+    </div>
+
+    <div class="aesthetic-card">
+        <img src="Y2K.jpg" alt="Y2K Aesthetic">
+        <div class="caption">Y2K</div>
+    </div>
+
+</div>
+
+<section class="contact">
+    <h2>Contact Us</h2>
+    <p>Collaborate, submit your aesthetic, or get styling tips.</p>
+
+    <form>
+        <input type="text" placeholder="Your Name"><br>
+        <input type="email" placeholder="Your Email"><br>
+        <textarea rows="4" placeholder="Your Message"></textarea><br>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <br><br>
+
+    <p>Follow us on Instagram:</p>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+</section>
+
+<footer>
+    © 2026 Draped & Defined | Digital Media Project
+</footer>
+
+</body>
+</html>
